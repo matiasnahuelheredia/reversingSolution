@@ -1,0 +1,78 @@
+\qquad Durante el curso de la evaluación, \brandName descubrió un total de \the\numexpr\totalCount\relax~hallazgos que representan un riesgo material para los sistemas de información de \enterpriseName. \brandName también identificó un hallazgo informativo que, si se aborda, podría fortalecer aún más la postura general de seguridad de \enterpriseName. Los hallazgos informativos son observaciones sobre áreas de mejora para la organización y no representan vulnerabilidades de seguridad por sí solas. La siguiente tabla proporciona un resumen de los hallazgos clasificados por nivel de severidad.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
+        \hline
+        \rowcolor{TableHeaderBgRowColor} 
+        \multicolumn{6}{|c|}{\textbf{Severidad de los Hallazgos}} \\       
+        \hline
+        \cellcolor{TableBgRowColor}\centering\textcolor{CriticalVulnColor}{\textbf{Crítico}} & 
+        \cellcolor{TableBgRowColor}\centering\textcolor{HighVulnColor}{\textbf{Alto}} &
+        \cellcolor{TableBgRowColor}\centering\textcolor{MediumVulnColor}{\textbf{Medio}} &
+        \cellcolor{TableBgRowColor}\centering\textcolor{LowVulnColor}{\textbf{Bajo}} &
+        \cellcolor{TableBgRowColor}\centering\textcolor{InfoVulnColor}{\textbf{Informativo}} &
+        \cellcolor{TableBgRowColor}{\textbf{Total}} \\
+        \hline
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{CriticalVulnColor}{\textbf{\countCritical}} & 
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{HighVulnColor}{\textbf{\countHigh}} &
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{MediumVulnColor}{\textbf{\countMedium}} &
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{LowVulnColor}{\textbf{\countLow}} &
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{InfoVulnColor}{\textbf{\countInfo}} &
+        \cellcolor{TableBgRowColor}{
+        \textbf{\the\numexpr\totalCount\relax
+        }} \\
+        \hline
+    \end{tabularx}
+    \label{tabla:ancho-completo}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+    \pie[
+        color={CriticalVulnColor, HighVulnColor, MediumVulnColor, LowVulnColor, InfoVulnColor},
+        text=legend, 
+        radius=3, 
+        sum=auto, 
+        radius=3, 
+        explode=0.1 
+    ]{
+        \countCritical/Crítico, % Cantidad de vulnerabilidades críticas
+        \countHigh/Alto,     % Cantidad de vulnerabilidades altas
+        \countMedium/Medio,   % Cantidad de vulnerabilidades medias
+        \countLow/Bajo,      % Cantidad de vulnerabilidades bajas
+        \countInfo/Informativo % Cantidad de vulnerabilidades informativas
+    }
+\end{tikzpicture}
+\caption{Distribución de Vulnerabilidades}
+\end{figure}
+\newpage
+
+A continuación se muestra un resumen de alto nivel de cada hallazgo identificado durante la evaluación. Estos hallazgos se abordan en detalle en la sección de Hallazgos Técnicos del presente informe. 
+
+\begin{table}[h!]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|}
+        \hline
+        \rowcolor{TableHeaderBgRowColor}        
+        \textcolor{black}{\textbf{\#Hallazgo}} &
+        \textcolor{black}{\textbf{Estado}} &
+        \textcolor{black}{\textbf{Nivel de Severidad}} &
+        \textcolor{black}{\textbf{Nombre del Hallazgo}} \\
+        \hline
+        \rowcolor{TableBgRowColor}        
+        \textcolor{black}{\textbf{2}} &
+        \textcolor{black}{\textbf{Nuevo}} &
+        \textcolor{HighVulnColor}{\textbf{Alto}} &
+        \textcolor{black}{\textbf{Suplantación de Respuesta LLMNR/NBT-NS}} \\
+        \hline
+        \rowcolor{TableBgRowIntemediaColor}        
+        \textcolor{black}{\textbf{1}} &
+        \textcolor{black}{\textbf{Nuevo}} &
+        \textcolor{LowVulnColor}{\textbf{Bajo}} &
+        \textcolor{black}{\textbf{Algo}} \\
+        \hline
+    \end{tabularx}
+    \label{tabla:ancho-completo}
+\end{table}

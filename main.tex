@@ -1,0 +1,256 @@
+\documentclass{article}
+\usepackage[a4paper, margin=0.5in, bottom=1.5in]{geometry}
+\usepackage{graphicx,xcolor} % Required for inserting images
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage[english,spanish]{babel}
+\usepackage{titlesec} % Paquete para personalizar los títulos
+\usepackage{sectsty} % Paquete para cambiar el estilo de las secciones
+\usepackage{tocloft} % Paquete para cambiar el estilo del indice
+% Fuente Encode Sans (la que usa Gecko Academy); si no está instalada, Helvetica
+\IfFileExists{encodesans.sty}
+  {\usepackage[default]{encodesans}}
+  {\usepackage{helvet}\renewcommand{\familydefault}{\sfdefault}}
+\usepackage{hyperref}
+\usepackage{calc}
+
+\usepackage{fancyhdr}
+\usepackage[x11names,table,xcdraw]{xcolor}
+\usepackage{pgf-pie} % Paquete para gráficos de torta
+\usepackage{xcolor}   % Paquete para definir colores
+\usepackage{tikz}      % Paquete para gráficos en TikZ
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{float}
+
+
+
+
+%Declare custom variables
+\newcommand{\brandName}{Matias Nahuel Heredia }
+\newcommand{\position}{Information Systems Analyst}
+\newcommand{\positiones}{Analista de Sistemas de Información}
+\newcommand{\myName}{}
+\newcommand{\tab}{\hspace{30pt}}
+\newcommand{\typePentest}{Black Box }
+\newcommand{\initialDate}{May 12, 2022 }
+\newcommand{\finalDate}{May 31, 2022 }
+\newcommand{\enterpriseName}{I.N.E }
+\newcommand{\documentVersion}{1.0}
+
+
+\newcommand{\countCritical}{1 }
+\newcommand{\countHigh}{2 }
+\newcommand{\countMedium}{3 }
+\newcommand{\countLow}{4 }
+\newcommand{\countInfo}{5 }
+\newcommand{\totalCount}{\countCritical+\countHigh+\countMedium+\countLow+\countInfo}
+
+% Declare colors
+% Paleta Gecko Academy (academy.binarygecko.com): verde #03A600, verde oscuro #028D00, negro, gris #AAAAAA
+\definecolor{geckoGreen}{HTML}{03A600}
+\definecolor{geckoGreenDark}{HTML}{028D00}
+\definecolor{geckoBlack}{HTML}{000000}
+\definecolor{geckoGray}{HTML}{AAAAAA}
+
+\definecolor{topHeaderBackground}{HTML}{000000}
+\definecolor{summarySectionColor}{HTML}{03A600}
+\definecolor{summarySubsectionColor}{HTML}{028D00}
+\definecolor{CriticalVulnColor}{HTML}{d50000}
+\definecolor{HighVulnColor}{HTML}{f44336}
+\definecolor{MediumVulnColor}{HTML}{e65100}
+\definecolor{LowVulnColor}{HTML}{8bc34a}
+\definecolor{InfoVulnColor}{HTML}{01579b}
+\definecolor{backGroundPageColor}{HTML}{FFFFFF}
+\definecolor{textPageColor}{HTML}{111111}
+
+
+
+\definecolor{TableHeaderBgRowColor}{HTML}{03A600}
+\definecolor{TableBgRowColor}{HTML}{C8EDC7}
+\definecolor{TableBgRowIntemediaColor}{HTML}{EEF9EE}
+
+% Enlaces e índice en verde Gecko
+\hypersetup{colorlinks=true, linkcolor=geckoGreenDark, urlcolor=geckoGreen, citecolor=geckoGreenDark}
+\setlength{\arrayrulewidth}{0.0mm}
+
+% Seccions color's
+\sectionfont{\color{summarySectionColor}\sffamily\bfseries}
+\subsectionfont{\color{summarySubsectionColor}\sffamily\bfseries}
+
+
+
+
+% table of contents color's
+\renewcommand{\cftsecfont}{\color{summarySectionColor}\sffamily\bfseries} 
+\renewcommand{\cftsecpagefont}{\color{summarySectionColor}\sffamily\bfseries} 
+\renewcommand{\cftsubsecfont}{\color{summarySubsectionColor}\sffamily} 
+\renewcommand{\cftsubsecpagefont}{\color{summarySubsectionColor}\sffamily} 
+\pagecolor{backGroundPageColor}
+\color{textPageColor}
+
+
+
+
+\title{
+\iflanguage{english}
+{Penetration Test Interno\\ Reporte de vulnerabilidades \\ (Versión:\documentVersion)}
+{Internal Penetration Test \\ Report of Findings \\ (Version: \documentVersion)}
+}
+\author{Matias Nahuel Heredia}
+\date{September 2024}
+
+
+\input{initial/header}
+\begin{document}
+
+% Cambiar el idioma
+\selectlanguage{spanish}
+\input{initial/initial}
+\newpage
+\pagestyle{fancy} % Aplicar encabezado a todas las demás páginas
+
+\tableofcontents
+\newpage
+
+\section{\iflanguage{spanish}{Versionado}{Versioning}}
+\iflanguage{spanish}
+{\input{sections/es/versioning}}
+{\input{sections/en/versioning}}
+
+
+\section{\iflanguage{spanish}{Contrato de Confidencialidad}{Statement of Confidentiality}}
+\iflanguage{spanish}
+{\input{sections/es/statement-confidential}}
+{\input{sections/en/statement-confidential}}
+
+
+\section{\iflanguage{spanish}{Contactos Involucrados}{Engagement Contacts}}
+\iflanguage{spanish}
+{\input{sections/es/engagement-contacts}}
+{\input{sections/en/engagement-contacts}}
+
+
+\section{\iflanguage{spanish}{Resumen Ejecutivo}{Executive Summary}}
+\iflanguage{spanish}
+{\input{sections/es/executive-summary}}
+{\input{sections/en/executive-summary}}
+
+\subsection{\iflanguage{spanish}{Enfoque}{Approach}}
+\iflanguage{spanish}
+{\input{sections/es/approach}}
+{\input{sections/en/approach}}
+
+\subsection{\iflanguage{spanish}{Alcance}{Scope}}
+\iflanguage{spanish}
+{\input{sections/es/scope}}
+{\input{sections/en/scope}}
+
+\subsection{\iflanguage{spanish}{Activos en Alcance}{In-Scope Assets}}
+\iflanguage{spanish}
+{\input{sections/es/InScopeAssets}}
+{\input{sections/en/InScopeAssets}}
+
+\subsection{\iflanguage{spanish}{Resumen de Evaluación y Recomendaciones}{Assessment Overview and Recommendations}}
+\iflanguage{spanish}
+{\input{sections/es/recomendations}}
+{\input{sections/en/recomendations}}
+
+\section{\iflanguage{spanish}{Resumen de Evaluación de Prueba de Penetración de Red}{Network Penetration Test Assessment Summary}}
+\iflanguage{spanish}
+{\input{sections/es/NetworkPenetrationTestAssementSummary}}
+{\input{sections/en/NetworkPenetrationTestAssementSummary}}
+
+\newpage
+\subsection{\iflanguage{spanish}{Escala de calificación de riesgos de seguridad de la información}{Information Security Risk Rating Scale}}
+\iflanguage{spanish}
+{\input{sections/es/information-rating-scale}}
+{\input{sections/en/information-rating-scale}}
+
+\subsection{\iflanguage{spanish}{Resumen de Hallazgos}{Summary of Findings}}
+\iflanguage{spanish}
+{\input{sections/es/summary-of-findings}}
+{\input{sections/en/summary-of-findings}}
+
+\subsection{\iflanguage{spanish}{Tendencia}{Trends}}
+\iflanguage{spanish}
+{\input{sections/es/trend1}}
+{\input{sections/en/trend1}}
+
+\iflanguage{spanish}
+{\input{sections/es/trend2}}
+{\input{sections/en/trend2}}
+
+
+\section{\iflanguage{spanish}{Recorrido de Compromiso de Red Interna}{Internal Network Compromise Walkthrough}}
+\iflanguage{spanish}
+{\input{sections/es/internal-network-compromise-walkthrough}}
+{\input{sections/en/internal-network-compromise-walkthrough}}
+
+\subsection{\iflanguage{spanish}{Recorrido Detallado}{Detailed Walkthrough}}
+\iflanguage{spanish}
+{\input{sections/es/detailed-walkthrought}}
+{\input{sections/en/detailed-walkthrought}}
+
+%Uncomment this Line
+%\section{\iflanguage{spanish}{Incidencias}{Incidents}}
+%\iflanguage{spanish}
+%{\input{sections/es/incidents}}
+%{\input{sections/en/incidents}}
+
+
+\section{\iflanguage{spanish}{Resumen de Remediación}{Remediation Summary}}
+\iflanguage{spanish}
+{\input{sections/es/remediation-summary}}
+{\input{sections/en/remediation-summary}}
+
+
+
+
+\subsection{\iflanguage{spanish}{Corto Plazo}{Short Term}}
+\iflanguage{spanish}
+{\input{sections/es/short-term}}
+{\input{sections/en/short-term}}
+
+\subsection{\iflanguage{spanish}{Mediano Plazo}{Medium Term}}
+\iflanguage{spanish}
+{\input{sections/es/medium-term}}
+{\input{sections/en/medium-term}}
+
+\subsection{\iflanguage{spanish}{Largo Plazo}{Long Term}}
+\iflanguage{spanish}
+{\input{sections/es/long-term}}
+{\input{sections/en/long-term}}
+
+\newpage
+\section{\iflanguage{spanish}{Detalles Técnicos de los Hallazgos}{Technical Findings Details}}
+\subsection{\iflanguage{spanish}{Detalles}{Details}}
+
+\iflanguage{spanish}
+    {\input{sections/es/technical-findings-details}}
+    {\input{sections/es/technical-findings-details}}
+
+
+\newpage
+\section{\iflanguage{spanish}{Apéndices}{Appendices}}
+\iflanguage{spanish}
+{\input{sections/es/appendices}}
+{\input{sections/en/appendices}}
+
+
+%Uncomment this Line
+%\section{\iflanguage{spanish}{Fortalezas del Sistema Identificadas}{Identified System Strengths}}
+%\iflanguage{spanish}
+%{\input{sections/es/system_strengths}}
+%{\input{sections/en/system_strengths}}
+
+
+
+\newpage
+\section{\iflanguage{spanish}{Agradecimientos y Cierre Formal}{Acknowledgments and Formal Closing}}
+\iflanguage{spanish}
+{\input{sections/es/formal-closing}}
+{\input{sections/en/formal-closing}}
+
+
+\end{document}

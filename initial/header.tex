@@ -1,0 +1,23 @@
+% Configuración de la altura del encabezado
+\setlength{\headheight}{30pt} % Aumentar un poco la altura para mayor flexibilidad
+
+% Definición de un estilo de página profesional
+\fancypagestyle{professional}{
+    \fancyhf{} % Limpiar encabezado y pie de página
+    
+    % Encabezado izquierdo: Logo
+    \fancyhead[L]{%
+        \includegraphics[height=0.8\headheight]{initial/img/logo.png} % Logo ajustado a un 80% de la altura del encabezado
+    }
+    
+    % Encabezado derecho: Título o texto adicional
+    \fancyhead[R]{%
+        \textbf{\fontsize{12}{14}\selectfont Nombre del Proyecto}\\ % Línea del título
+        \textit{\fontsize{10}{12}\selectfont Descripción breve o subtítulo} % Línea del subtítulo
+    }
+    
+    % Línea decorativa debajo del encabezado
+    \renewcommand{\headrulewidth}{0.5pt} % Agregar una línea fina
+    \renewcommand{\footrulewidth}{0pt}   % Sin línea en el pie de página
+}
+

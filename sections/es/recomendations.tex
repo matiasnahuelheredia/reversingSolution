@@ -1,0 +1,42 @@
+\qquad Durante la prueba de penetración interna contra \enterpriseName, \brandName identificó \the\numexpr\totalCount\relax hallazgos que
+amenazan la confidencialidad, integridad y disponibilidad de los sistemas de información de \enterpriseName. Los hallazgos fueron
+clasificados por nivel de gravedad, con \countCritical de los hallazgos asignados con una calificación de riesgo crítico, \countHigh de alto riesgo, \countMedium de riesgo medio, 
+\countLow de bajo riesgo y \countInfo de riesgo informativo. También hubo un (1) hallazgo informativo relacionado con la mejora de las capacidades de monitoreo de seguridad dentro de la
+red interna.
+El evaluador encontró que la gestión de parches y vulnerabilidades de \enterpriseName estaba bien mantenida. Ninguno de los hallazgos en este
+informe estuvo relacionado con la falta de parches de sistema operativo o de terceros sobre vulnerabilidades conocidas en servicios y
+aplicaciones que podrían resultar en acceso no autorizado y compromiso del sistema. Cada defecto descubierto durante las pruebas estuvo
+relacionado con una mala configuración o falta de endurecimiento, siendo la mayoría de ellos problemas de autenticación débil y
+autorización débil.
+Un hallazgo involucró un protocolo de comunicación de red que puede ser “suplantado” para obtener contraseñas de usuarios internos
+que pueden ser utilizadas para obtener acceso no autorizado si un atacante puede acceder a la red sin credenciales. En la mayoría de los entornos corporativos,
+este protocolo es innecesario y puede deshabilitarse. Está habilitado por defecto principalmente para pequeñas y medianas empresas que no tienen los recursos para un servidor dedicado de resolución de nombres (el
+“directorio telefónico” de su red). Durante la evaluación, se observó la presencia de estos recursos en la
+red, por lo que \enterpriseName debería comenzar a formular un plan de pruebas para deshabilitar el servicio peligroso.
+El siguiente problema fue una configuración débil relacionada con cuentas de servicio que permite a cualquier usuario autenticado robar un
+componente del proceso de autenticación que a menudo puede adivinarse fuera de línea (mediante “cracking” de contraseñas) para revelar la
+contraseña del usuario en forma legible. Este tipo de cuentas de servicio suelen tener más privilegios que un
+usuario estándar, por lo que obtener una de sus contraseñas en texto claro podría resultar en movimiento lateral o escalada de privilegios
+y eventualmente en un compromiso total de la red interna. El evaluador también notó que la misma contraseña se usaba para
+el acceso de administrador a todos los servidores dentro de la red interna. Esto significa que si un servidor es comprometido, un atacante
+puede reutilizar esta contraseña para acceder a cualquier servidor que la comparta para acceso administrativo. Afortunadamente, ambos problemas pueden corregirse sin la necesidad de herramientas de terceros. Active Directory de Microsoft contiene configuraciones que se pueden utilizar para
+minimizar el riesgo de que estos recursos sean explotados en beneficio de usuarios maliciosos.
+También se encontró un servidor web ejecutando una aplicación web que usaba credenciales débiles y fácilmente adivinables para acceder a una
+consola administrativa que puede ser aprovechada para obtener acceso no autorizado al
+servidor subyacente. Esto podría ser
+explotado por un atacante en la red interna sin necesidad de una cuenta de usuario válida. Este ataque está muy bien documentado, por lo que es un objetivo muy probable que puede ser particularmente dañino, incluso en manos de un atacante no capacitado.
+Idealmente, el acceso externo directo a este servicio debería deshabilitarse, pero si no puede ser, debe reconfigurarse con
+credenciales excepcionalmente fuertes que se roten con frecuencia. \enterpriseName también debería considerar maximizar los datos de registro
+recopilados desde este dispositivo para garantizar que los ataques contra él puedan ser detectados y triados rápidamente.
+El evaluador también encontró carpetas compartidas con permisos excesivos, lo que significa que todos los usuarios en la red interna pueden acceder
+a una cantidad considerable de datos. Si bien compartir archivos internamente entre departamentos y usuarios es importante para las operaciones diarias del
+negocio, permisos abiertos en las comparticiones de archivos pueden resultar en la divulgación no intencionada de información
+confidencial. Incluso si una compartición de archivos no contiene información sensible hoy en día, alguien podría poner allí esos datos sin darse cuenta pensando que están protegidos cuando no lo están. Esta configuración debe cambiarse para garantizar que los usuarios solo puedan acceder a lo necesario para realizar sus tareas diarias.
+Finalmente, el evaluador notó que las actividades de prueba parecían pasar desapercibidas, lo que podría representar una oportunidad para
+mejorar la visibilidad en la red interna e indica que un atacante real podría permanecer indetectado si se logra acceso interno. \enterpriseName debería crear un plan de remediación basado en la sección Resumen de Remediación de este
+informe, abordando todos los hallazgos críticos lo antes posible de acuerdo con las necesidades del negocio. \enterpriseName también debería
+considerar realizar evaluaciones periódicas de vulnerabilidades si aún no se están llevando a cabo. Una vez que los problemas
+identificados en este informe hayan sido abordados, una evaluación de seguridad más colaborativa y profunda de Active Directory podría
+ayudar a identificar oportunidades adicionales para fortalecer el entorno de Active Directory, dificultando el movimiento de los atacantes
+por la red y aumentando la probabilidad de que \enterpriseName pueda detectar y responder a
+actividad sospechosa.

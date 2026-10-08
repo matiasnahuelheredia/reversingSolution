@@ -1,0 +1,42 @@
+name: Compilar LaTeX
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write  # necesario para publicar el PDF en un Release al crear un tag
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compilar main.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_lualatex: false   # usa pdflatex (inputenc/helvet)
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Renombrar PDF
+        run: mv main.pdf reporte-pentest.pdf
+
+      - name: Subir PDF como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-pentest
+          path: reporte-pentest.pdf
+          retention-days: 30
+
+      - name: Publicar en Release (solo tags v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: reporte-pentest.pdf

@@ -1,0 +1,84 @@
+\qquad During the course of testing, \brandName uncovered a total of \the\numexpr\totalCount\relax~findings that pose a material risk to
+\enterpriseName’s information systems. \brandName also identified one informational finding that, if addressed,
+could further strengthen \enterpriseName’s overall security posture. Informational findings are observations for areas of
+improvement by the organization and do not represent security vulnerabilities on their own. The below table provides a
+summary of the findings by severity level.
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|}
+        \hline
+        \rowcolor{TableHeaderBgRowColor} 
+        \multicolumn{6}{|c|}{\textbf{Finding Severity}} \\       
+        \hline
+        \cellcolor{TableBgRowColor}\centering\textcolor{CriticalVulnColor}{\textbf{Critical}} & 
+        \cellcolor{TableBgRowColor}\centering\textcolor{HighVulnColor}{\textbf{High}} &
+        \cellcolor{TableBgRowColor}\centering\textcolor{MediumVulnColor}{\textbf{Medium}} &
+        \cellcolor{TableBgRowColor}\centering\textcolor{LowVulnColor}{\textbf{Low}} &
+        \cellcolor{TableBgRowColor}\centering\textcolor{InfoVulnColor}{\textbf{Info}} &
+        \cellcolor{TableBgRowColor}{\textbf{Total}} \\
+        \hline
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{CriticalVulnColor}{\textbf{\countCritical}} & 
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{HighVulnColor}{\textbf{\countHigh}} &
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{MediumVulnColor}{\textbf{\countMedium}} &
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{LowVulnColor}{\textbf{\countLow}} &
+        \cellcolor{TableBgRowIntemediaColor}\centering\textcolor{InfoVulnColor}{\textbf{\countInfo}} &
+        \cellcolor{TableBgRowColor}{
+        \textbf{\the\numexpr\totalCount\relax
+        }} \\
+        \hline
+    \end{tabularx}
+    \label{tabla:ancho-completo}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+    \pie[
+        color={CriticalVulnColor, HighVulnColor, MediumVulnColor, LowVulnColor, InfoVulnColor},
+        text=legend, 
+        radius=3, 
+        sum=auto, 
+        radius=3, 
+        explode=0.1 
+    ]{
+        \countCritical/Critical, % Cantidad de vulnerabilidades críticas
+        \countHigh/High,     % Cantidad de vulnerabilidades altas
+        \countMedium/Medium,   % Cantidad de vulnerabilidades medias
+        \countLow/Low,      % Cantidad de vulnerabilidades bajas
+        \countInfo/Info % Cantidad de vulnerabilidades informativas
+    }
+\end{tikzpicture}
+\caption{Vulnerability Distribution}
+\end{figure}
+\newpage
+
+Below is a high-level overview of each finding identified during testing. These findings are covered in depth in the
+Technical Findings Details section of this report. 
+
+\begin{table}[h!]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|}
+        \hline
+        \rowcolor{TableHeaderBgRowColor}        
+        \textcolor{black}{\textbf{\#Finding}} &
+        \textcolor{black}{\textbf{State}} &
+        \textcolor{black}{\textbf{Severity Level}} &
+        \textcolor{black}{\textbf{Finding Name}} \\
+        \hline
+        \rowcolor{TableBgRowColor}        
+        \textcolor{black}{\textbf{2}} &
+        \textcolor{black}{\textbf{New}} &
+        \textcolor{HighVulnColor}{\textbf{High}} &
+        \textcolor{black}{\textbf{LLMNR/NBT-NS Response Spoofing}} \\
+        \hline
+        \rowcolor{TableBgRowIntemediaColor}        
+        \textcolor{black}{\textbf{1}} &
+        \textcolor{black}{\textbf{New}} &
+        \textcolor{LowVulnColor}{\textbf{Low}} &
+        \textcolor{black}{\textbf{Something}} \\
+        \hline
+    \end{tabularx}
+    \label{tabla:ancho-completo}
+\end{table}

@@ -1,0 +1,12 @@
+% Portada: logo Gecko Academy + título + imagen, todo en la primera página
+% (el logo va dentro del título porque \maketitle fuerza un salto de página)
+\makeatletter
+\let\geckoOrigTitle\@title
+\title{%
+    {\setlength{\fboxsep}{10pt}\colorbox{black}{\includegraphics[width=0.55\linewidth]{initial/img/gecko-logo.pdf}}}\\[1.5em]
+    \geckoOrigTitle}
+\makeatother
+\maketitle
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{initial/img/pentester.jpg}
+\end{center}

@@ -1,0 +1,31 @@
+---------------------------------
+TODO tutorial
+---------------------------------
+
+
+\qquad \brandName performed the following to fully compromise the \enterpriseName.LOCAL domain.
+1. The tester utilized the Responder tool to obtain an NTLMv2 password hash for a domain user, bsmith.
+2. This password hash was successfully cracked offline using the Hashcat tool to reveal the user's clear text
+password which granted a foothold into the \enterpriseName.LOCAL domain, but with no more privileges than
+a standard domain user.
+3. The tester then ran the BloodHound.py, a Python version of the popular SharpHound collection tool to
+enumerate the domain and create visual representations of attack paths. Upon review, the tester found that
+multiple privileged users existed in the domain configured with Service Principal Names (SPNs), which can be
+leveraged to perform a Kerberoasting attack and retrieve TGS Kerberos tickets for the accounts which can be
+cracked offline using Hashcat if a weak password is set. From here, the tester used the GetUserSPNs.py tool to
+carry out a targeted Kerberoasting attack against the mssqlsvc account, having found that the mssqlsvc account
+had local administrator rights over the host SQL01.\enterpriseName.LOCAL which was an interesting target in
+the domain.
+4. The tester was able to successfully crack this account's password offline, revealing the clear text value.
+5. The tester was able to authenticate to the host SQL01.\enterpriseName.LOCAL and retrieve a clear text
+password from the host's registry by decrypting LSA secrets for an account (srvadmin) which was set up for
+autologon.
+6. This srvadmin account had local administrator rights over all servers (aside from Domain Controllers) in the
+domain so the tester was able to log into the MS01.\enterpriseName.LOCAL host and retrieve a Kerberos TGT
+ticket for a logged in user, pramirez, who was part of the Tier I Server Admins group which granted the account
+DCSync rights over the domain object. This attack can be utilized to retrieve the NTLM password hash for any
+user in the domain, resulting in domain compromise and persistence via a Golden Ticket.
+7. The tester used the Rubeus tool to extract the Kerberos TGT ticket for the pramirez user and perform a Pass-theTicket attack to authenticate as this user.
+8. Finally, the tester was able to perform a DCSync attack after successfully authenticating with this user account
+via the Mimikatz tool which ended in domain compromise.
+
