@@ -26,17 +26,17 @@ jobs:
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
       - name: Renombrar PDF
-        run: mv main.pdf reporte-pentest.pdf
+        run: mv main.pdf reporte-gecko-academy.pdf
 
       - name: Subir PDF como artefacto
         uses: actions/upload-artifact@v4
         with:
-          name: reporte-pentest
-          path: reporte-pentest.pdf
+          name: reporte-gecko-academy
+          path: reporte-gecko-academy.pdf
           retention-days: 30
 
       - name: Publicar en Release (solo tags v*)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: reporte-pentest.pdf
+          files: reporte-gecko-academy.pdf

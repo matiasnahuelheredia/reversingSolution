@@ -3,6 +3,13 @@
 \subsection{Descripción del nivel}
 El binario solicita un nombre de usuario y un serial de 8 dígitos hexadecimales. El serial se calcula a partir del usuario, por lo que el objetivo es reconstruir esa función y escribir un \emph{keygen}.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\linewidth]{initial/img/level1.png}
+\caption{Pantalla del nivel 1: usuario y serial ingresados}
+\label{fig:level1}
+\end{figure}
+
 \subsection{Análisis estático}
 % Cómo se ubicó la rutina de validación: cadenas, referencias cruzadas, funciones relevantes.
 \textit{[A completar.]}
@@ -24,7 +31,7 @@ El binario solicita un nombre de usuario y un serial de 8 dígitos hexadecimales
 \end{lstlisting}
 
 \subsection{Resultado}
-Credencial generada y aceptada por el binario (ver Figura~\ref{fig:levels}):
+El binario acepta la credencial: la entrada se ve en la Figura~\ref{fig:level1} y el mensaje \texttt{Level 1 PASSED} al comienzo de la Figura~\ref{fig:level2}.
 
 \begin{lstlisting}[language={}]
 Username: mati

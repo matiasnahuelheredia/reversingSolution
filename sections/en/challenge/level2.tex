@@ -3,6 +3,13 @@
 \subsection{Level description}
 It reuses the Level 1 username and asks for a serial in the format \texttt{XXXX-XXXX-XXXX-YYYY}. The task is to understand how the first three blocks are generated and what the final \texttt{YYYY} block represents.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\linewidth]{initial/img/level2.png}
+\caption{Level 1 passed and Level 2 screen}
+\label{fig:level2}
+\end{figure}
+
 \subsection{Static analysis}
 % How the validation routine was located: strings, cross-references, relevant functions.
 \textit{[To be completed.]}
@@ -24,7 +31,7 @@ It reuses the Level 1 username and asks for a serial in the format \texttt{XXXX-
 \end{lstlisting}
 
 \subsection{Result}
-Credential generated and accepted by the binary (see Figure~\ref{fig:levels}):
+The binary accepts the credential: the input is shown in Figure~\ref{fig:level2} and the \texttt{Level 2 PASSED} message at the top of Figure~\ref{fig:level3}.
 
 \begin{lstlisting}[language={}]
 Username: mati (from Level 1)

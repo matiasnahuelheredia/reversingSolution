@@ -3,6 +3,13 @@
 \subsection{Descripción del nivel}
 Reutiliza el usuario del nivel 1 y pide un serial con formato \texttt{XXXX-XXXX-XXXX-YYYY}. Hay que entender cómo se generan los tres primeros bloques y qué representa el bloque final \texttt{YYYY}.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\linewidth]{initial/img/level2.png}
+\caption{Nivel 1 superado y pantalla del nivel 2}
+\label{fig:level2}
+\end{figure}
+
 \subsection{Análisis estático}
 % Cómo se ubicó la rutina de validación: cadenas, referencias cruzadas, funciones relevantes.
 \textit{[A completar.]}
@@ -24,7 +31,7 @@ Reutiliza el usuario del nivel 1 y pide un serial con formato \texttt{XXXX-XXXX-
 \end{lstlisting}
 
 \subsection{Resultado}
-Credencial generada y aceptada por el binario (ver Figura~\ref{fig:levels}):
+El binario acepta la credencial: la entrada se ve en la Figura~\ref{fig:level2} y el mensaje \texttt{Level 2 PASSED} al comienzo de la Figura~\ref{fig:level3}.
 
 \begin{lstlisting}[language={}]
 Username: mati (from Level 1)
